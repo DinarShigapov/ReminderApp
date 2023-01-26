@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,36 +27,58 @@ namespace ReminderApp.Pages
         public RegPage()
         {
             InitializeComponent();
+            DataContext = user;
         }
 
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
             string error = "";
 
-            if (string.IsNullOrWhiteSpace(TBLogin.Text) == true)
+            if (string.IsNullOrWhiteSpace(user.Login) == true
+                || user.Login == null || user.Login == string.Empty)
             {
-                error = "Введите корректный логин\n";
+                error += "-Введите корректный логин\n";
+                TBLogin.Text = string.Empty;
             }
-            if (string.IsNullOrWhiteSpace(TBPassword.Text) == true)
+            if (string.IsNullOrWhiteSpace(user.Password) == true
+                || user.Password == null)
             {
-                error = "Введите корректный пароль\n";
+                error += "-Введите корректный пароль\n(A-z0-9~!@#$%^&*()+`'\";:<>/\\|)\n";
+                TBPassword.Text = string.Empty;
             }
-
             if (error != "")
             {
-                MessageBox.Show(error);
+                MessageBox.Show(error, "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
-            user.Login = TBLogin.Text;
-            user.Password = TBPassword.Text;
-
+            
 
             App.DB.User.Add(user);
             App.DB.SaveChanges();
             MessageBox.Show("Успешный вход");
             NavigationService.GoBack();
 
+        }
+
+        private void TBInput_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (Regex.IsMatch(e.Text, @"[A-z0-9~!@#$%^&*()+`'"";_:<>/\|]") == false)
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void TBLostFocus(object sender, RoutedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            textBox.Text = textBox.Text.Replace(" ", string.Empty);
+        }
+
+        private void BBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

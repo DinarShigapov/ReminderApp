@@ -38,7 +38,7 @@ namespace ReminderApp.Pages
                 MessageBox.Show("Логин неверный");
                 return;
             }
-            if (user.Password != TBPassword.Text || user.Password == null)
+            if (user.Password != TBPassword.Password || user.Password == null)
             {
                 MessageBox.Show("Пароль неверный");
                 return;
@@ -46,6 +46,12 @@ namespace ReminderApp.Pages
 
             App.LoggedUser = user;
             NavigationService.Navigate(new MenuPage());
+        }
+
+        private void TBLostFocus(object sender, RoutedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            textBox.Text = textBox.Text.Replace(" ", string.Empty);
         }
     }
 }

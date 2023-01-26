@@ -90,26 +90,26 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\DBReminder.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBReminder.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DBReminder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBReminder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DBReminder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBReminder.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Reminder.cs">
-      <DependentUpon>ReminderDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ReminderDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReminderDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ReminderDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReminderDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ReminderDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReminderDB.edmx</DependentUpon>
+      <DependentUpon>DBReminder.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs">
-      <DependentUpon>ReminderDB.tt</DependentUpon>
+      <DependentUpon>DBReminder.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
@@ -137,12 +137,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\ReminderDB.edmx">
+    <EntityDeploy Include="Model\DBReminder.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ReminderDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBReminder.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\ReminderDB.edmx.diagram">
-      <DependentUpon>ReminderDB.edmx</DependentUpon>
+    <None Include="Model\DBReminder.edmx.diagram">
+      <DependentUpon>DBReminder.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -154,19 +154,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\ReminderDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ReminderDB.Context.cs</LastGenOutput>
-      <DependentUpon>ReminderDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\ReminderDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ReminderDB.edmx</DependentUpon>
-      <LastGenOutput>ReminderDB.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Model\DBReminder.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBReminder.edmx</DependentUpon>
+      <LastGenOutput>DBReminder.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DBReminder.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBReminder.edmx</DependentUpon>
+      <LastGenOutput>DBReminder.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,48 +8,47 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AuthPage">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <StackPanel Grid.Column="1"
-                    Grid.Row="1"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-            <Border 
-                BorderBrush="Black"
-                BorderThickness="1"
-                VerticalAlignment="Center"
-                Padding="20">
-                <StackPanel Orientation="Vertical"
-                        Width="200">
-                    <TextBlock Text="Авторизация"
+    
+    <Grid Background="#FFF9F9F9">
+        <Border Style="{StaticResource BorderStyle}">
+            <StackPanel Style="{StaticResource SPStyle}"
+                        Width="250">
+                <TextBlock Text="Авторизация"
                            HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-                    <TextBlock Text="Логин"/>
-                    <TextBox x:Name="TBLogin"/>
-                    <TextBlock Text="Пароль"/>
-                    <TextBox x:Name="TBPassword"/>
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Margin="0 10">
-                        <Button x:Name="BEnter"
-                            Content="Войти" Margin="0 0 10 0"
-                                Click="BEnter_Click"/>
-                        <Button x:Name="BReg"
-                            Content="Регистрация"
-                                Click="BReg_Click"/>
-                    </StackPanel>
+                           FontSize="20"
+                           FontWeight="SemiBold"/>
+                <StackPanel>
+                    <TextBlock Text="Логин"
+                               Opacity="0.4"/>
+                    <TextBox x:Name="TBLogin"
+                             LostFocus="TBLostFocus"
+                             MaxLength="20"/>
                 </StackPanel>
-            </Border>
-        </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Пароль"
+                               Opacity="0.4"/>
+                    <PasswordBox x:Name="TBPassword"
+                                 MaxLength="20"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <Button x:Name="BEnter"
+                            Content="Войти"
+                            Background="#FF77B157" 
+                            Click="BEnter_Click"
+                            Width="80"
+                            Height="30"
+                            Margin="0 5"/>
+                    <Button x:Name="BReg"
+                            Content="Регистрация"
+                            Background="#FFCC6D6D" 
+                            Click="BReg_Click"
+                            Width="120"
+                            Height="30"
+                            Margin="5 0"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

@@ -14,7 +14,7 @@ namespace ReminderApp
     /// </summary>
     public partial class App : Application
     {
-        public static DBReminderEntities DB = new DBReminderEntities();
+        public static ReminderDBEntities DB = new ReminderDBEntities();
         public static User LoggedUser;
     }
 }

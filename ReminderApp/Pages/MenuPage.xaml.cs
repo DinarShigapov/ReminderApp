@@ -22,21 +22,28 @@ namespace ReminderApp.Pages
     public partial class MenuPage : Page
     {
 
-        Reminder reminderContext = new Reminder();
+        Reminder reminderContext = new Reminder() { User = App.LoggedUser };
 
         public MenuPage()
         {
             InitializeComponent();
             DataContext = reminderContext;
-            LVReminder.ItemsSource = App.DB.Reminder.ToList();
+            DPTime.Text = DateTime.Now.ToString();
+            Refresh();
+        }
+
+        private void Refresh() 
+        {
+            LVReminder.ItemsSource = App.DB.Reminder.Where(x => x.UserId == App.LoggedUser.Id).ToList();
         }
 
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
+            var selectDate = DPTime.SelectedDate;
             string error = "";
-            if (reminderContext.Date == null)
+            if (selectDate == null)
             {
-                error = "Введите дату\n";
+                error = "Укажите дату\n";
                 return;
             }
             if (reminderContext.Description == null || reminderContext.Description == "")
@@ -44,15 +51,17 @@ namespace ReminderApp.Pages
                 error = "Введите описание\n";
                 return;
             }
-
             if (error != "")
             {
                 MessageBox.Show(error);
                 return;
             }
+            reminderContext.Date = selectDate.Value;
+
 
             App.DB.Reminder.Add(reminderContext);
             App.DB.SaveChanges();
+            Refresh();
         }
     }
 }
