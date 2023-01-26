@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ReminderApp.Model;
 
 namespace ReminderApp.Pages
 {
@@ -21,24 +22,27 @@ namespace ReminderApp.Pages
     public partial class MenuPage : Page
     {
 
-        
+        Reminder reminderContext = new Reminder();
 
         public MenuPage()
         {
             InitializeComponent();
+            DataContext = reminderContext;
             LVReminder.ItemsSource = App.DB.Reminder.ToList();
         }
 
         private void BSave_Click(object sender, RoutedEventArgs e)
         {
             string error = "";
-            if (DPTime == null)
+            if (reminderContext.Date == null)
             {
-                error = "Введите корректный логин\n";
+                error = "Введите дату\n";
+                return;
             }
-            if ()
+            if (reminderContext.Description == null || reminderContext.Description == "")
             {
-
+                error = "Введите описание\n";
+                return;
             }
 
             if (error != "")
@@ -46,6 +50,9 @@ namespace ReminderApp.Pages
                 MessageBox.Show(error);
                 return;
             }
+
+            App.DB.Reminder.Add(reminderContext);
+            App.DB.SaveChanges();
         }
     }
 }
