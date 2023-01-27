@@ -44,16 +44,14 @@ namespace ReminderApp.Pages
             if (selectDate == null)
             {
                 error = "Укажите дату\n";
-                return;
             }
             if (reminderContext.Description == null || reminderContext.Description == "")
             {
                 error = "Введите описание\n";
-                return;
             }
             if (error != "")
             {
-                MessageBox.Show(error);
+                MessageBox.Show(error, "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
             reminderContext.Date = selectDate.Value;

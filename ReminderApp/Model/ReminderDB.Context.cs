@@ -13,10 +13,10 @@ namespace ReminderApp.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ReminderDBEntities : DbContext
+    public partial class ReminderEntities : DbContext
     {
-        public ReminderDBEntities()
-            : base("name=ReminderDBEntities")
+        public ReminderEntities()
+            : base("name=ReminderEntities")
         {
         }
     
