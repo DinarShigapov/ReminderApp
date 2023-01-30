@@ -30,10 +30,16 @@ namespace ReminderApp.Pages
             DataContext = user;
         }
 
-        private void BSave_Click(object sender, RoutedEventArgs e)
+
+        private void SaveUser()
         {
             string error = "";
 
+            if (App.DB.User.FirstOrDefault(x => x.Login == user.Login) != null)
+            {
+                MessageBox.Show($"Пользователь с таким логином {user.Login} уже существует");
+                return;
+            }
             if (string.IsNullOrWhiteSpace(user.Login) == true
                 || user.Login == null || user.Login == string.Empty)
             {
@@ -51,13 +57,18 @@ namespace ReminderApp.Pages
                 MessageBox.Show(error, "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            
+
 
             App.DB.User.Add(user);
             App.DB.SaveChanges();
-            MessageBox.Show("Успешный вход");
+            MessageBox.Show($"Был зарегистрирован новый пользователь '{user.Login}'",
+                "Добро пожаловать", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.GoBack();
+        }
 
+        private void BSave_Click(object sender, RoutedEventArgs e)
+        {
+            SaveUser();
         }
 
         private void TBInput_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -79,6 +90,14 @@ namespace ReminderApp.Pages
         private void BBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void Page_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SaveUser();
+            }
         }
     }
 }

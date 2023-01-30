@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,7 +24,6 @@ namespace ReminderApp.Pages
     {
 
         Reminder reminderContext = new Reminder() { User = App.LoggedUser };
-
         public MenuPage()
         {
             InitializeComponent();
@@ -60,6 +60,19 @@ namespace ReminderApp.Pages
             App.DB.Reminder.Add(reminderContext);
             App.DB.SaveChanges();
             Refresh();
+        }
+
+        private void DPTime_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+            if (Regex.IsMatch(e.Text, @"[0-9.]") == false)
+                e.Handled = true;
+  
+        }
+
+        private void BLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

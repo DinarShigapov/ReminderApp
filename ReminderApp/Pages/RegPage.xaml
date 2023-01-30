@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:ReminderApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="RegPage">
+      Title="RegPage"
+      KeyDown="Page_KeyDown">
 
     <Grid Background="#FFF9F9F9">
         <Border Style="{StaticResource BorderStyle}">

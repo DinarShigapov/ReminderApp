@@ -19,15 +19,27 @@
                 <ColumnDefinition Width="8*"/>
             </Grid.ColumnDefinitions>
 
+            <Button x:Name="BLogOut"
+                    Height="25"
+                    Width="55"
+                    FontSize="12"
+                    Background="#FFC6634C"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Content="Log Out"
+                    Click="BLogOut_Click"/>
+
             <DatePicker Text="{Binding Date}"
                         x:Name="DPTime"
                         VerticalContentAlignment="Center"
                         VerticalAlignment="Center" 
-                        Height="24" Margin="57,0,57,0"/>
+                        Height="24" Margin="57,0,57,0"
+                        PreviewTextInput="DPTime_PreviewTextInput"/>
 
             <StackPanel Grid.Row="1"
                         Margin="0,20,0,7"
-                        Orientation="Vertical">
+                        Orientation="Vertical"
+                        VerticalAlignment="Top">
                 <TextBlock Text="Напоминание"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
@@ -39,8 +51,8 @@
                 <Button Content="Записаться" x:Name="BSave"
                         Click="BSave_Click"
                         Margin="0 10"
-                        Width="130"
-                        Height="20"
+                        Width="150"
+                        Height="25"
                         Background="#FF77B157"/>
             </StackPanel>
 
@@ -48,14 +60,16 @@
                     Grid.RowSpan="2"
                     Style="{StaticResource BorderStyle}" Height="386"  Width="360">
                 <ListView x:Name="LVReminder" 
-                          d:ItemsSource="{d:SampleData ItemCount=0}"
+                          d:ItemsSource="{d:SampleData ItemCount=2}"
                           ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                          ScrollViewer.CanContentScroll="False"
                           BorderThickness="0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border Padding="20"
                                     BorderThickness="1"
-                                    BorderBrush="Black">
+                                    BorderBrush="Gray"
+                                    Style="{StaticResource BorderStyle}">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="93"/>
@@ -67,7 +81,9 @@
 
                                     <TextBlock Text="{Binding Date, StringFormat=dd.MM.yyyy}"
                                                VerticalAlignment="Center"
-                                               HorizontalAlignment="Center"/>
+                                               HorizontalAlignment="Center"
+                                               FontSize="15"
+                                               ScrollViewer.CanContentScroll="False"/>
 
                                     <Border Grid.Column="1"
                                             BorderBrush="Black"
