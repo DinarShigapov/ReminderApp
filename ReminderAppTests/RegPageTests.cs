@@ -6,23 +6,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ReminderAppTests.Model;
+using ReminderApp.Model;
 
 namespace ReminderApp.Pages.Tests
 {
 
 
     [TestClass()]
-
     public class RegPageTests
     {
         [TestMethod()]
         public void RegPageTest()
         {
-            //User user = new User();
-            //user = UserInfo.user;
+            //ReminderApp.Model.User user = new ReminderApp.Model.User();
+            //user = UserInfo.userInfo;
 
-            string login = "123";
-            DBReminderEntities DB = new DBReminderEntities();
+            string login = "432";
+            ReminderDBREntities DB = new ReminderDBREntities();
             var loginCheck = DB.User.Where(x => x.Login == login).FirstOrDefault();
             Assert.IsTrue(loginCheck != null);
         }

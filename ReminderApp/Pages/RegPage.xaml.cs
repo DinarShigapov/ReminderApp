@@ -24,7 +24,7 @@ namespace ReminderApp.Pages
 
     public class UserInfo
     {
-        public static User user { get; set; }
+        public static User userInfo { get; set; }
     }
 
     public partial class RegPage : Page
@@ -72,7 +72,7 @@ namespace ReminderApp.Pages
                 "Добро пожаловать", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.GoBack();
 
-            UserInfo.user = user;
+            UserInfo.userInfo = user;
         }
 
         private void BSave_Click(object sender, RoutedEventArgs e)

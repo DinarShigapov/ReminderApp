@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f4d538436ede44c595a10cb461e3a06f" Name="Diagram1">
-        <EntityTypeShape EntityType="DBReminderModel.Reminder" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBReminderModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="DBReminderModel.FK_Reminder_User" ManuallyRouted="false" />
+      <Diagram DiagramId="adbd6d81d99046719f970a5edb2bc498" Name="Diagram1">
+        <EntityTypeShape EntityType="ReminderDBRModel.Reminder" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReminderDBRModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="ReminderDBRModel.FK_Reminder_User" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
