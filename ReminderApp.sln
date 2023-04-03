@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderApp", "ReminderApp\ReminderApp.csproj", "{C331A3E9-4139-4E57-A4FD-DC9F39FD1F94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderAppTests", "ReminderAppTests\ReminderAppTests.csproj", "{9887312E-D670-4B49-A76F-7C992475D692}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C331A3E9-4139-4E57-A4FD-DC9F39FD1F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C331A3E9-4139-4E57-A4FD-DC9F39FD1F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C331A3E9-4139-4E57-A4FD-DC9F39FD1F94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9887312E-D670-4B49-A76F-7C992475D692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9887312E-D670-4B49-A76F-7C992475D692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9887312E-D670-4B49-A76F-7C992475D692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9887312E-D670-4B49-A76F-7C992475D692}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

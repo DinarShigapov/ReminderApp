@@ -20,6 +20,13 @@ namespace ReminderApp.Pages
     /// <summary>
     /// Логика взаимодействия для RegPage.xaml
     /// </summary>
+    /// 
+
+    public class UserInfo
+    {
+        public static User user { get; set; }
+    }
+
     public partial class RegPage : Page
     {
         User user = new User();
@@ -64,6 +71,8 @@ namespace ReminderApp.Pages
             MessageBox.Show($"Был зарегистрирован новый пользователь '{user.Login}'",
                 "Добро пожаловать", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.GoBack();
+
+            UserInfo.user = user;
         }
 
         private void BSave_Click(object sender, RoutedEventArgs e)
