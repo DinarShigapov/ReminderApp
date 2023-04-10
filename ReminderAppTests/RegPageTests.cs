@@ -10,8 +10,6 @@ using ReminderApp.Model;
 
 namespace ReminderApp.Pages.Tests
 {
-
-
     [TestClass()]
     public class RegPageTests
     {
@@ -24,7 +22,7 @@ namespace ReminderApp.Pages.Tests
             string login = "432";
             ReminderDBREntities DB = new ReminderDBREntities();
             var loginCheck = DB.User.Where(x => x.Login == login).FirstOrDefault();
-            Assert.IsTrue(loginCheck != null);
+            Assert.IsTrue(loginCheck != null, "dsds");
         }
     }
 }

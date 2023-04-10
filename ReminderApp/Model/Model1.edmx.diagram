@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e5d3a4e1257548bb950647de2c38fb82" Name="Diagram1">
+      <Diagram DiagramId="6ba6c0c254dd491ba38ed6a33b42c276" Name="Diagram1">
         <EntityTypeShape EntityType="ReminderDBRModel.Reminder" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ReminderDBRModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReminderDBRModel.User" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="ReminderDBRModel.FK_Reminder_User" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

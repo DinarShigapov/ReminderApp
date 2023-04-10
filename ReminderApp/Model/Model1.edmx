@@ -21,6 +21,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK_Reminder_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -64,6 +65,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Reminder" Relationship="Self.FK_Reminder_User" FromRole="User" ToRole="Reminder" />
         </EntityType>
         <Association Name="FK_Reminder_User">
@@ -78,7 +80,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ReminderEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ReminderDBREntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Reminder" EntityType="Self.Reminder" />
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_Reminder_User" Association="Self.FK_Reminder_User">
@@ -91,7 +93,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ReminderDBRModelContainer" CdmEntityContainer="ReminderEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ReminderDBRModelContainer" CdmEntityContainer="ReminderDBREntities">
           <EntitySetMapping Name="Reminder">
             <EntityTypeMapping TypeName="ReminderDBRModel.Reminder">
               <MappingFragment StoreEntitySet="Reminder">
@@ -108,6 +110,7 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

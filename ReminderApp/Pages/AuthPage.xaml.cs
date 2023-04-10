@@ -45,7 +45,7 @@ namespace ReminderApp.Pages
             }
 
             App.LoggedUser = user;
-            NavigationService.Navigate(new MenuPage());
+            NavigationService.Navigate(new EditUserPage());
         }
 
         private void TBLostFocus(object sender, RoutedEventArgs e)

@@ -66,8 +66,7 @@ namespace ReminderApp.Pages
             }
 
 
-            App.DB.User.Add(user);
-            App.DB.SaveChanges();
+            App.DB.User.Add(user);            App.DB.SaveChanges();
             MessageBox.Show($"Был зарегистрирован новый пользователь '{user.Login}'",
                 "Добро пожаловать", MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.GoBack();
